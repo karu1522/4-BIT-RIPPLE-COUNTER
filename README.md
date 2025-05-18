@@ -8,7 +8,7 @@ To implement  4 Bit Ripple Counter using verilog and validating their functional
 
 Quartus prime
 
-**THEORY**
+**THEORY:**
 
 **4 Bit Ripple Counter**
 
@@ -22,19 +22,49 @@ In timing diagram Q0 is changing as soon as the negative edge of clock pulse is 
 
 ![image](https://github.com/naavaneetha/4-BIT-RIPPLE-COUNTER/assets/154305477/85e1958a-2fc1-49bb-9a9f-d58ccbf3663c)
 
-**Procedure**
+**Procedure:**
 
-/* write all the steps invloved */
+1.Code Overview: Understand the Verilog module ripple_counter, which includes clock (clk) and reset (rst) inputs, and a 4-bit output count. The counter increments on each positive clock edge unless reset is asserted, resetting the count to 0.
 
-**PROGRAM**
+2.Simulation Preparation: Use a Verilog simulator (e.g., ModelSim) and write a testbench module to apply clock and reset signals while monitoring the counter output.
 
-/* Program for 4 Bit Ripple Counter and verify its truth table in quartus using Verilog programming.
+3.Testbench Implementation: Instantiate the ripple_counter module in the testbench, generate clock and reset signals, apply them to the counter module, and observe the count output.
 
- Developed by: RegisterNumber:
-*/
+4.Simulation Execution: Compile both the counter module and the testbench, simulate the design, and verify that the counter counts from 0 to 15 (binary 1111) and resets to 0 when the reset signal is activated.
 
-**RTL LOGIC FOR 4 Bit Ripple Counter**
+5.Verification and Debugging: Analyze timing diagrams to ensure proper counter behavior, debug any encountered issues during simulation, and make necessary modifications to the design for optimal functionality.
 
-**TIMING DIGRAMS FOR 4 Bit Ripple Counter**
+**PROGRAM:**
 
-**RESULTS**
+```
+module ripplecounter(clk, rst, count);
+input wire clk;
+input wire rst;
+output reg [3:0] count;
+
+always @(posedge clk or posedge rst)
+begin
+	if(rst)
+		count <= 4'b0000;
+	else
+		count <= count + 1;
+end
+endmodule
+```
+
+**Developed by: Karthic U**
+
+**RegisterNumber: 212224040151**
+
+**RTL LOGIC FOR 4 Bit Ripple Counter:**
+
+![image](https://github.com/user-attachments/assets/07656b7d-122a-43cc-b9ae-2b8974e16e27)
+
+**TIMING DIGRAMS FOR 4 Bit Ripple Counter:**
+
+![image](https://github.com/user-attachments/assets/be44b29e-e56e-4847-9698-52c72139c147)
+
+
+**RESULTS:**
+
+Thus, the program has been executed successfully.
